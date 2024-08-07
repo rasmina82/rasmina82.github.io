@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AR Video Player</title>
+  <title>AR with Button</title>
   <!-- Sertakan A-Frame -->
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <!-- Sertakan AR.js -->
@@ -9,34 +9,26 @@
 </head>
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs="sourceType: webcam;">
-    <!-- Marker untuk mengesan penanda -->
+    <!-- Kamera yang digunakan untuk mengesan penanda -->
     <a-marker preset="hiro">
-      <!-- Objek 3D (Butang untuk Main Video) -->
-      <a-plane position="0 0.5 0" width="1" height="0.5" material="color: blue;" 
-               text="value: Play Video; color: white; align: center;"
+      <!-- Objek 3D yang akan dipaparkan -->
+      <a-box position="0 0.5 0" material="color: yellow;"></a-box>
+
+      <!-- Butang -->
+      <a-plane position="0 -0.5 0" width="1" height="0.5" material="color: blue;" 
+               text="value: Click Me; color: white; align: center;"
                event-set__click="scale: 1.2 1.2 1.2; color: red;" 
-               onclick="playVideo()">
+               onclick="buttonClicked()">
       </a-plane>
-      
-      <!-- Tempat Paparan Video -->
-      <a-video id="videoPlayer" position="0 1 0" width="1.5" height="1" 
-               rotation="-90 0 0" 
-               src="#videoSrc" 
-               autoplay="false">
-      </a-video>
     </a-marker>
 
     <!-- Paparan latar belakang AR -->
     <a-entity camera></a-entity>
   </a-scene>
 
-  <!-- Sumber Video -->
-  <video id="videoSrc" src="MEDINA.mp4" style="display:none;"></video>
-
   <script>
-    function playVideo() {
-      const video = document.querySelector('#videoSrc');
-      video.play();
+    function buttonClicked() {
+      alert('Button has been clicked!');
     }
   </script>
 </body>
