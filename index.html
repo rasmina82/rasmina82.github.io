@@ -17,7 +17,14 @@
 </a-video>
       <a-assets>
     <video id="myVideo" src="MEDINA.mp4" autoplay loop></video>
+
 </a-assets>
     </a-scene>
+                <script>
+    function playVideo() {
+      const video = document.querySelector('#videoSrc');
+      video.play();
+    }
+  </script>
 </body>
 </html>
